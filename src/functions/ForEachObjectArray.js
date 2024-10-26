@@ -24,16 +24,14 @@ module.exports = async (d) => {
 
     let el = {};
     let i = 0;
-    for (const key in d.data.objects[name]) {
-        if (d.data.objects[name].hasOwnProperty(key)) {
+    for (const key in d.data.objects[name][property]) {
+        if (d.data.objects[name][property].hasOwnProperty(key)) {
 
-            el[key] = d.data.objects[name][key]; 
+            el[key] = d.data.objects[name][property][key];
             const c = { ...cmd }; 
             c.code = c.code.replaceAll("{value}", el); 
 
-            if(!Array.isArray(el[key])) continue;
-            el[key] = d.data.objects[name][key]
-            let parsedResult = JSON.stringify(el[property][i])
+            let parsedResult = JSON.stringify(el[key])
             await Interpreter(
                 d.client,
                 d.message,

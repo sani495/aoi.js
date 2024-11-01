@@ -23,8 +23,7 @@ module.exports = async (d) => {
 
     if (!style || style > 6 || style < 1) return d.aoiError.fnError(d, "custom", { inside: data.inside }, "Invalid Button Style Provided In");
 
-    emoji = await d.util.getEmoji(d, emoji.addBrackets()).id;
-    if (!emoji) emoji = emoji.addBrackets().trim();
+    emoji ? await d.util.getEmoji(d, emoji.addBrackets()).id : undefined
 
     const button = {
         label,

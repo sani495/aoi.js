@@ -8,6 +8,8 @@
   <b>The most powerful string package to create a simple and fast Discord Bot.</b>
 </div>
 
+(Forked by sani)
+
 ---
 
 <br/>
